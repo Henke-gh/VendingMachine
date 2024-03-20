@@ -14,18 +14,43 @@ vendingMachine.AddToStock(water);
 Console.WriteLine("Ahhh, a new face! What's your name?");
 string? customerName = Console.ReadLine();
 
-if (customerName == null)
+if (customerName == null || customerName == "")
 {
     customerName = "Stranger";
 }
 
 Customer newCustomer = new Customer(customerName, 360);
 
-Console.WriteLine("");
-Console.WriteLine($"Right, well.. welcome to my store {newCustomer.Name}");
-Thread.Sleep(800);
+Console.WriteLine($"Have a look around {newCustomer.Name}!");
+while (true)
+{
+    Console.WriteLine("Commands: 'Shop', 'Inventory', 'Exit'");
+    Console.Write("Enter command: ");
+    string? command = Console.ReadLine();
 
-Storefront.GetStorefront();
-Thread.Sleep(500);
-Storefront.GetStock(vendingMachine);
-Storefront.ShopControls(vendingMachine, newCustomer);
+    if (command == "Shop")
+    {
+        Console.WriteLine("");
+        Console.WriteLine($"Welcome to my store, {newCustomer.Name}");
+        Thread.Sleep(800);
+
+        Storefront.GetStorefront();
+        Thread.Sleep(500);
+        Storefront.GetStock(vendingMachine);
+        Storefront.ShopControls(vendingMachine, newCustomer);
+    }
+
+    if (command == "Inventory")
+    {
+        Console.WriteLine("");
+        Inventory.GetCustomerInfo(newCustomer);
+        continue;
+    }
+
+    if (command == "Exit")
+    {
+        Thread.Sleep(300);
+        Console.WriteLine("Bye.");
+        break;
+    }
+}

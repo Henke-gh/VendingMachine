@@ -65,7 +65,7 @@ namespace VendningMachine
                 Console.WriteLine($"Your funds: {customer.Wallet}");
                 Console.WriteLine("");
                 Console.WriteLine("What do you wish to buy?");
-                Console.Write("Enter item name: ");
+                Console.Write("Enter item name (or type 'Leave' to exit shop): ");
                 string? itemToBuy = Console.ReadLine();
                 Console.WriteLine("");
 
