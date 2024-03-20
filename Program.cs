@@ -11,6 +11,9 @@ vendingMachine.AddToStock(noHope);
 vendingMachine.AddToStock(bread);
 vendingMachine.AddToStock(water);
 
+Console.ForegroundColor = ConsoleColor.Yellow;
+
+Console.WriteLine("");
 Console.WriteLine("Ahhh, a new face! What's your name?");
 string? customerName = Console.ReadLine();
 
@@ -51,6 +54,9 @@ while (true)
     {
         Thread.Sleep(300);
         Console.WriteLine("Bye.");
+        Console.WriteLine("");
         break;
     }
 }
+
+Console.ResetColor();
